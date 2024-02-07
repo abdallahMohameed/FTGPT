@@ -1,0 +1,37 @@
+﻿using System.Runtime.InteropServices;
+
+namespace LLama.Native;
+
+/// <summary>
+/// ID for a sequence in a batch
+/// </summary>
+[StructLayout(LayoutKind.Sequential)]
+public struct LLamaSeqId
+{
+    /// <summary>
+    /// The raw value
+    /// </summary>
+    public int Value;
+
+    /// <summary>
+    /// Create a new LLamaSeqId 
+    /// </summary>
+    /// <param name="value"></param>
+    public LLamaSeqId(int value)
+    {
+        Value = value;
+    }
+
+    /// <summary>
+    /// Convert a LLamaSeqId into an integer (extract the raw value)
+    /// </summary>
+    /// <param name="pos"></param>
+    public static explicit operator int(LLamaSeqId pos) => pos.Value;
+
+    /// <summary>
+    /// Convert an integer into a LLamaSeqId
+    /// </summary>
+    /// <param name="value"></param>
+    /// <returns></returns>
+    public static explicit operator LLamaSeqId(int value) => new(value);
+}
