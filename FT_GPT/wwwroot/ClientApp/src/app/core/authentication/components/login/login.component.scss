@@ -1,0 +1,100 @@
+@import '~bootstrap/dist/css/bootstrap.css';
+
+
+// Colors
+$greenSeaweed:  #d03d28;
+$blueQueen: #d3837a;
+$redFire: #363636;
+
+// Fonts
+$fontAsap: 'Asap', sans-serif;
+
+.bg-main {
+  background-color: $redFire;
+  font-family: $fontAsap;
+}
+.background-logo {
+width: 20%;      
+}
+.login {
+  overflow: hidden;
+  background-color: white;
+  padding: 40px 30px 30px 30px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 55%;
+  min-height: 36%; 
+  transform: translate(-50%, -50%);
+  transition: transform 300ms, box-shadow 300ms;
+  box-shadow: 5px 10px 10px rgba($greenSeaweed, 0.2);
+  
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-top-left-radius: 40%;
+    border-top-right-radius: 45%;
+    border-bottom-left-radius: 35%;
+    border-bottom-right-radius: 40%;
+    z-index: -1;
+  }
+  
+  &::before {
+    left: 40%;
+    bottom: -130%;
+    background-color: rgba($blueQueen, 0.6);
+    animation: waves 6s infinite linear;
+  }
+  
+  &::after {
+    left: 35%;
+    bottom: -120%;
+    background-color: rgba($greenSeaweed, 0.8);
+    animation: waves 5s infinite;
+  }
+  
+  > input {
+    font-family: $fontAsap;
+    display: block;
+    border-radius: 5px;
+    font-size: 16px;
+    background: white;
+    width: 100%;
+    border: 0;
+    padding: 10px 10px;
+    margin: 15px -10px;
+  }
+  
+  > button {
+    font-family: $fontAsap;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    width: 80px;
+    border: 0;
+    padding: 10px 0;
+    margin-top: 10px;
+    margin-left: -5px;
+    border-radius: 5px;
+    background-color: $redFire;
+    transition: background-color 300ms;
+    
+    &:hover {
+      background-color: darken($redFire, 5%);
+    }
+  }
+}
+
+@keyframes waves {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+  

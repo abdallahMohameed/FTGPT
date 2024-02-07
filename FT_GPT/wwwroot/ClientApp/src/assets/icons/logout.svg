@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60.939" height="60.939" viewBox="0 0 60.939 60.939">
+  <defs>
+    <filter id="Path_633" x="0" y="0" width="60.939" height="60.939" filterUnits="userSpaceOnUse">
+      <feOffset dx="1" dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feFlood flood-color="#090909" flood-opacity="0.102"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_3158" data-name="Group 3158" transform="translate(-227.5 -373.5)">
+    <g id="Group_3158-2" data-name="Group 3158" transform="translate(234 380)">
+      <g transform="matrix(1, 0, 0, 1, -6.5, -6.5)" filter="url(#Path_633)">
+        <path id="Path_633-2" data-name="Path 633" d="M22.97,0A22.97,22.97,0,1,1,0,22.97,22.97,22.97,0,0,1,22.97,0Z" transform="translate(6.5 6.5)" fill="#fff"/>
+      </g>
+    </g>
+    <path id="Icon_metro-switch" data-name="Icon metro-switch" d="M18.427,5.473V8.76a7.725,7.725,0,1,1-6.19,0V5.473a10.833,10.833,0,1,0,6.19,0ZM13.784,1.928h3.1V14.309h-3.1Z" transform="translate(241.638 388.315)" fill="#2588df"/>
+  </g>
+</svg>

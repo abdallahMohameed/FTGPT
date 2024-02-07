@@ -1,0 +1,56 @@
+{
+  "common": {
+    "buttons": {
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "save": "Save",
+      "delete": "Delete",
+      "forgot-password": "Forgot password",
+      "login":"Login"
+    },
+    "messages": {
+      "error": "An error occurred",
+      "success": "Operation was successful",
+      "no_data": "No data available",
+      "activity_empty": "No recent activity",
+      "error_messages": {
+        "validation": {
+          "required": "{{field}} is required",
+          "min_length": "{{field}} should be at least {{minLength}} characters long",
+          "email_format": "{{field}} should be a valid email address",
+          "bio_max_length": "{{field}} should not exceed {{maxLength}} characters"
+        },
+        "server": {
+          "not_found": "Resource not found",
+          "server_error": "Internal server error",
+          "unauthorized": "Unauthorized access"
+        }
+      }
+    }
+  },
+  "labels": {
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "bio": "Bio",
+    "id":"Id",
+    "remember-me": "Remember me"
+  },
+  "placeholders": {
+    "name": "Enter your name",
+    "email": "Email",
+    "password": "Password"
+  },
+  "hints": {
+    "password": "Must be at least 8 characters long"
+  },
+  "titles": {
+    "welcome": "Welcome, {{name}}!",
+    "statistics": "Statistics",
+    "recent_activity": "Recent Activity",
+    "login-to-your-account": "Login",
+    "add-product":"Add product",
+    "edit-product":"Edit product"
+
+  }
+}

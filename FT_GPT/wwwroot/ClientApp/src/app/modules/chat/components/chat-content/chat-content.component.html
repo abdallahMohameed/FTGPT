@@ -1,0 +1,83 @@
+<body [ngClass]="{'light-mode':isLightMode}">
+
+
+  <div #chatContainer class="chat-container">
+    <div>
+      <div *ngIf="messages.length === 0" class="default-text">
+        <h1>FT GPT</h1>
+        <p>Start a conversation and explore the power of AI.<br> Your chat history will be displayed here.</p>
+      </div>
+    </div>
+    <div *ngIf="messages.length > 0">
+      <div *ngFor="let message of messages; let last = last" class="chat"
+        [ngClass]="{'outgoing':message.role === 'user','incoming':message.role === 'assistant'}">
+        <div class=" " *ngIf="message.content !== null && message.content !== '' ">
+          <div *ngIf="message.role === 'user'" class="chat-content ">
+            <div class="chat-details">
+              <img height="50" width="50" src="../../assets/img/user.png" alt="user-img">
+
+              <p [appTypingAnimation]="message.content"></p>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="message.role !== 'user'" class=" ">
+          <div class="chat-content">
+            <div class="chat-details">
+              <!-- <img height="50" width=" 50" src="../../assets/img/chatgpt.gif"> -->
+              <img height="50" width="50" src="../../assets/img/chatgpt.gif" class="rounded-circle ms-2"
+                alt="chatbot-img"><br>
+                <p *ngIf="last && SignalR_Response !==''">{{SignalR_Response}}</p>
+                <p [innerHTML]="message.content"></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div *ngIf="isBusy === true">
+      <div class="chat-content">
+        <div class="chat-details  chat incoming">
+          <div class='page mb-5 m-auto'>
+            <div class="wrapper">
+              <div class='eyes'>
+                <div class="eye" id='right-eye'>
+                  <div class='topLid'></div>
+                  <div class='btmLid'></div>
+                  <div class='left' id='left-p'></div>
+                </div>
+                <div class="eye" id='left-eye'>
+                  <div class='topLid'></div>
+                  <div class='btmLid'></div>
+                  <div class='right' id='right-p'></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="typing-container">
+    <div class="typing-content">
+      <div class="typing-textarea">
+        <textarea id="chat-input" class="custom-textarea" placeholder="Type something..." rows="1" name="textInput"
+          [disabled]="this.isBusy === true" #textInput (keyup.enter)="createCompletion(textInput)"></textarea>
+
+
+      </div>
+      <div class="typing-controls">
+        <span *ngIf="isBusy === false" (click)="createCompletion(textInput)">
+          <i class="fa-regular fa-paper-plane text-white"></i>
+        </span>
+        <span (click)="toggleTheme()" class="rounded clickable"> <i class="fa fa-lightbulb"
+            aria-hidden="true"></i></span>
+        <span class="rounded clickablex"><i class="fa fa-trash" aria-hidden="true"></i></span>
+      </div>
+    </div>
+  </div>
+
+
+</body>

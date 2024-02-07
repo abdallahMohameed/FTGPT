@@ -1,0 +1,86 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates"
+      ],
+      "rules": {
+        "indent": [
+          1,
+          4
+        ],
+        "no-unused-vars": 1,
+        "no-debugger": 1,
+        "no-console": "warn",
+        "no-multi-spaces": 1,
+        "no-multiple-empty-lines": 1,
+        "no-mixed-spaces-and-tabs": 2,
+        "keyword-spacing": [
+          2,
+          {}
+        ],
+        "no-spaced-func": 2,
+        "comma-dangle": [
+          2,
+          "never"
+        ],
+        "camelcase": [
+          1,
+          {
+            "properties": "never"
+          }
+        ],
+        "no-trailing-spaces": 1,
+        "max-len": [
+          2,
+          160
+        ],
+        "space-before-blocks": [
+          2,
+          "always"
+        ],
+        "space-infix-ops": 1,
+        "prefer-const": 1,
+        "@typescript-eslint/no-explicit-any": 1,
+        "@typescript-eslint/no-empty-interface": 1,
+        "comma-spacing": [
+          1,
+          {
+            "before": false, 
+            "after": true 
+          }
+        ],
+        "@typescript-eslint/no-unused-expressions": 1,
+        "no-duplicate-imports": 1,
+        "semi": [
+          1,
+          "always"
+        ],
+        "no-empty": 1,
+        "no-shadow": 1
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended"
+      ],
+      "rules": {}
+    }
+  ]
+}

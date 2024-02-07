@@ -1,0 +1,138 @@
+@media (min-width: 640px) and (max-width: 768px) {
+  #separator-sidebar {
+    width: 15rem;
+  }
+}
+.active {
+  background-color: rgb(95, 94, 94);
+  border-radius: 6px;
+  color: white;
+}
+.custom-hover:hover {
+  background-color: #333; /* Add your preferred dark mode background color */
+  color: #fff; /* Add your preferred dark mode text color */
+  /* Add any additional styles for the dark mode hover effect */
+}
+.custom-sidebar {
+  transition: transform 0.3s ease;
+  width: 35%;
+  height: 100%;
+  z-index: 1111;
+  background-color: #0303037a;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box-shadow based on your design */
+  /* ... Add any other custom styles you need */
+}
+.custom-div {
+  height: 100%; /* Equivalent to h-full */
+  padding: 1rem 0.75rem; /* Equivalent to px-3 py-4 */
+  background-color: #0f172abf; /* Equivalent to bg-[#0f172abf] */
+  color: #ffffff; /* Equivalent to text-white */
+  /* Add any other custom styles you need */
+}
+.custom-ul {
+  font-weight: 500; 
+  max-height: 80%; 
+  overflow-y: auto; 
+}
+.border-newChat{
+  border: 1px solid rgba(255, 255, 255, 0.75); 
+}
+
+
+
+:root {
+  --background-primary: #202123;
+  --background-secondary: #343541;
+  --color-primary: #19c37d;
+  --color-secondary: #715fde;
+  --color-error: #ef4146;
+  --gradient-primary: linear-gradient(90deg, #a29bd4, #989fdd);
+  --text-primary: #202123;
+  --text-default: #353740;
+  --text-secondary: #6e6e80;
+  --text-disabled: #acacbe;
+  --text-error: var(--color-error);
+}
+
+
+.sidebar {
+  padding: 10px;
+  background-color: #202123;
+  /* width: 100%; */
+  /* width: max-content; */
+  min-height: 68em;
+  height: 100vh;
+  position: fixed;
+  /* display: grid; */
+}
+
+button {
+  border: 1px solid hsla(0, 0%, 100%, .2);
+  font-size: .875rem;
+  width: 100%;
+  text-align: left;
+  color: white;
+  height: 3rem;
+  padding: 12px 12px;
+  background: transparent;
+  border-radius: 8px;
+  font-family: Roboto;
+  cursor: pointer;
+  transition: .3s;
+}
+
+button:hover {
+  background: #40414f7a;
+}
+
+.profile {
+  /* position: relative;
+  bottom: 0; */
+  border-top: 1px solid #ffffff33;
+  padding: 10px;
+}
+
+a {
+  color: white;
+  opacity: 0.9;
+  text-decoration: none;
+  font-weight: 300;
+}
+
+.tab {
+  display: flex;
+  font-size: .875rem;
+  width: 100%;
+  text-align: left;
+  height: 3rem;
+  padding: 12px 12px;
+  background: transparent;
+  border-radius: 8px;
+  font-family: Roboto;
+  cursor: pointer;
+  margin-bottom: -1.5em;
+  color: white;
+  opacity: 91;
+  font-weight: 300;
+  line-height: 1.3;
+  transition: .3s;
+}
+
+.tab[data-call="upgrade"]::after {
+  content: "New";
+  text-transform: uppercase;
+  background: #fae69e;
+  color: #202123;
+  font-weight: 500;
+  font-size: 0.845rem;
+  border: none;
+  padding: 2px 6px;
+  border-radius: 6px;
+  right: 0.5rem;
+  position: absolute;
+  height: 16px;
+}
+.chats{
+  height: 39rem;
+  overflow: hidden;
+}

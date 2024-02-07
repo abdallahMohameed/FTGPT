@@ -346,3 +346,4 @@ site/
 /LLama.Unittest/Models/*.bin
 /LLama.Unittest/Models/*.gguf
 
+/FT_GPT/wwwroot/ClientApp/.angular/cache/16.2.1

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60.939" height="60.939" viewBox="0 0 60.939 60.939">
+  <defs>
+    <filter id="Path_633" x="0" y="0" width="60.939" height="60.939" filterUnits="userSpaceOnUse">
+      <feOffset dx="1" dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feFlood flood-color="#090909" flood-opacity="0.102"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_3156" data-name="Group 3156" transform="translate(6.5 6.5)">
+    <g transform="matrix(1, 0, 0, 1, -6.5, -6.5)" filter="url(#Path_633)">
+      <path id="Path_633-2" data-name="Path 633" d="M22.97,0A22.97,22.97,0,1,1,0,22.97,22.97,22.97,0,0,1,22.97,0Z" transform="translate(6.5 6.5)" fill="#fff"/>
+    </g>
+    <path id="Icon_ionic-md-person" data-name="Icon ionic-md-person" d="M16.279,16.279a5.89,5.89,0,1,0-5.89-5.89A5.907,5.907,0,0,0,16.279,16.279Zm0,2.945c-3.9,0-11.779,1.988-11.779,5.89v2.945H28.058V25.113C28.058,21.212,20.181,19.224,16.279,19.224Z" transform="translate(6.101 5.131)" fill="#2588df"/>
+  </g>
+</svg>

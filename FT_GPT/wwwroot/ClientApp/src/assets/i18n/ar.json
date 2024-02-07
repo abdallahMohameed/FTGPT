@@ -1,0 +1,54 @@
+{
+    "common": {
+      "buttons": {
+        "submit": "إرسال",
+        "cancel": "إلغاء",
+        "save": "حفظ",
+        "delete": "حذف",
+        "forgot-password": "نسيت كلمة المرور",
+        "login":"تسجيل الدخول"
+      },
+      "messages": {
+        "error": "حدث خطأ",
+        "success": "تمت العملية بنجاح",
+        "no_data": "لا توجد بيانات متاحة",
+        "activity_empty": "لا توجد أنشطة حديثة",
+        "error_messages": {
+          "validation": {
+            "required": "{{field}} مطلوب",
+            "min_length": "{{field}} يجب أن يكون على الأقل {{minLength}} أحرف",
+            "email_format": "{{field}} يجب أن يكون عنوان بريد إلكتروني صحيح",
+            "bio_max_length": "{{field}} لا يجب أن يتجاوز {{maxLength}} حرف"
+          },
+          "server": {
+            "not_found": "المورد غير موجود",
+            "server_error": "خطأ في الخادم الداخلي",
+            "unauthorized": "تم الوصول غير المصرح به"
+          }
+        }
+      }
+    },
+    "labels": {
+      "name": "الاسم",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "bio": "السيرة الذاتية",
+      "id":"Id",
+      "remember-me": "تذكرني"
+    },
+    "placeholders": {
+      "name": "أدخل اسمك",
+      "email": "أدخل عنوان بريدك الإلكتروني",
+      "password": "أدخل كلمة المرور"
+    },
+    "hints": {
+      "password": "يجب أن تحتوي كلمة المرور على ما لا يقل عن 8 أحرف"
+    },
+    "titles": {
+      "welcome": "مرحبًا، {{name}}!",
+      "statistics": "الإحصائيات",
+      "recent_activity": "الأنشطة الحديثة",
+      "login-to-your-account": "تسجيل الدخول لحسابك"
+    }
+  }
+  
