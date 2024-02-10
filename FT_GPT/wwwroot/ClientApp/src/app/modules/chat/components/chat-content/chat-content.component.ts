@@ -43,10 +43,15 @@ implements OnInit, AfterViewChecked, AfterViewInit, OnDestroy
 
 
   ngOnInit(): void {
+      this.chatService.isLightMode.subscribe((value: boolean) => {
+          this.isLightMode = value;
+      });
       this.subscription = this.signalRService.getMessageSubject().subscribe(
           (response: any) => {
               this.isBusy = false;
-              this.SignalR_Response += response;
+              this.highlightService.highlightAll();
+              this.SignalR_Response = this.chatService.addHTMLTagsToResponseCode(response) ;
+
           },
           (error) => {
               console.error('Error receiving messages:', error);
@@ -56,7 +61,7 @@ implements OnInit, AfterViewChecked, AfterViewInit, OnDestroy
 
   }
   toggleTheme() {
-      this.isLightMode = !this.isLightMode;
+      this.chatService.changeChatTheme();
   }
 
   ngAfterViewInit() {
@@ -83,11 +88,11 @@ implements OnInit, AfterViewChecked, AfterViewInit, OnDestroy
 
           this.messages.push(message);
           try {
-              const s: ChatMessage = {
+              const FillerMessage: ChatMessage = {
                   role:ChatCompletionRequestMessageRoleEnum.Assistant,
                   content: ''
               };
-              this.messages.push(s);
+              this.messages.push(FillerMessage);
               this.isBusy = true;
               setTimeout(() => {
                   this.setupAnimation();
@@ -101,8 +106,6 @@ implements OnInit, AfterViewChecked, AfterViewInit, OnDestroy
               };
               if (this.signalRService.checkIfResponseEnded()) {
                   responseMessage.content = this.chatService.addHTMLTagsToResponseCode(this.SignalR_Response) ;
-                  console.log('responseMessage.content',responseMessage.content);
-                  
                   this.SignalR_Response = "";
                   this.messages.pop();
                   this.isBusy = false;

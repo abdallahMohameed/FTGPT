@@ -66,25 +66,22 @@
   /* display: grid; */
 }
 
-button {
-  border: 1px solid hsla(0, 0%, 100%, .2);
-  font-size: .875rem;
-  width: 100%;
-  text-align: left;
-  color: white;
-  height: 3rem;
-  padding: 12px 12px;
-  background: transparent;
-  border-radius: 8px;
-  font-family: Roboto;
-  cursor: pointer;
-  transition: .3s;
+.lightSideBar{
+  background-color: #f8f9fa !important;
+  box-shadow:
+  4.4px 3.4px 3.9px -89px rgba(0, 0, 0, 0.035),
+  11.2px 8.7px 9.9px -89px rgba(0, 0, 0, 0.048),
+  22.9px 17.7px 20.2px -89px rgba(0, 0, 0, 0.061),
+  47.1px 36.5px 41.6px -89px rgba(0, 0, 0, 0.075),
+  129px 100px 114px -89px rgba(0, 0, 0, 0.09)
+;
 }
-
-button:hover {
-  background: #40414f7a;
+.lightSideBarText{
+  color: black !important;
 }
-
+.lightProfile{
+  border-top: 1px solid #D9D9E3 !important;
+}
 .profile {
   /* position: relative;
   bottom: 0; */
@@ -96,7 +93,8 @@ a {
   color: white;
   opacity: 0.9;
   text-decoration: none;
-  font-weight: 300;
+  font-weight: 400;
+  font-size: 20px;
 }
 
 .tab {
@@ -118,21 +116,8 @@ a {
   transition: .3s;
 }
 
-.tab[data-call="upgrade"]::after {
-  content: "New";
-  text-transform: uppercase;
-  background: #fae69e;
-  color: #202123;
-  font-weight: 500;
-  font-size: 0.845rem;
-  border: none;
-  padding: 2px 6px;
-  border-radius: 6px;
-  right: 0.5rem;
-  position: absolute;
-  height: 16px;
-}
+
 .chats{
-  height: 39rem;
+  height: 37rem;
   overflow: hidden;
 }

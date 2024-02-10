@@ -12,11 +12,15 @@ import {ChatHistories} from '../../interfaces/chat-histories';
     styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+    isLightMode = false;
     constructor(
     private chatDataService: ChatDataService,
     private chatService: ChatService,
     private router: Router
     ) {}
+    userEmail = localStorage.getItem('email') ?? '';
+    userDepartment = localStorage.getItem('department') ?? '';
+    userTitle = localStorage.getItem('title');
 
     messages: ChatMessage[] = [];
     chatHistories: ChatHistories = {
@@ -26,6 +30,9 @@ export class SidebarComponent implements OnInit {
     isHistoricalChat = false;
 
     ngOnInit(): void {
+        this.chatService.isLightMode.subscribe((value: boolean) => {
+            this.isLightMode = value;
+        });
         this.chatService.getMessagesSubject().subscribe((messages:any) => {
             this.messages = messages;
         });

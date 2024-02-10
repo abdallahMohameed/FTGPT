@@ -1,6 +1,4 @@
 <body [ngClass]="{'light-mode':isLightMode}">
-
-
   <div #chatContainer class="chat-container">
     <div>
       <div *ngIf="messages.length === 0" class="default-text">
@@ -27,7 +25,10 @@
               <!-- <img height="50" width=" 50" src="../../assets/img/chatgpt.gif"> -->
               <img height="50" width="50" src="../../assets/img/chatgpt.gif" class="rounded-circle ms-2"
                 alt="chatbot-img"><br>
-                <p *ngIf="last && SignalR_Response !==''">{{SignalR_Response}}</p>
+                <div *ngIf="last && SignalR_Response !==''">
+                <p [innerHTML]="SignalR_Response"></p>
+
+                </div>
                 <p [innerHTML]="message.content"></p>
             </div>
           </div>
@@ -70,11 +71,11 @@
       </div>
       <div class="typing-controls">
         <span *ngIf="isBusy === false" (click)="createCompletion(textInput)">
-          <i class="fa-regular fa-paper-plane text-white"></i>
+          <i [class.text-white]="isLightMode" class="fa-regular fa-paper-plane "></i>
         </span>
         <span (click)="toggleTheme()" class="rounded clickable"> <i class="fa fa-lightbulb"
             aria-hidden="true"></i></span>
-        <span class="rounded clickablex"><i class="fa fa-trash" aria-hidden="true"></i></span>
+        <!-- <span class="rounded clickablex"><i class="fa fa-trash" aria-hidden="true"></i></span> -->
       </div>
     </div>
   </div>

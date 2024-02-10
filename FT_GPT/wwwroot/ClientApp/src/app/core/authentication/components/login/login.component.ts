@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit, OnDestroy {
             };
             this.userLoginSubscription = this._AuthenticationService.login(userDataRequest).subscribe({
                 next: (result) => {
-                    console.log(result);
+                    this._AuthenticationService.saveUserDataToLocalStorage(result);
                     this.isPressed = false;
                     this._navigation.navigateToHomePage();
                 },

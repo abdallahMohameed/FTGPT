@@ -4,24 +4,29 @@ import { BehaviorSubject, Observable, catchError, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { ChatDataService } from '../chatData/chat-data.service';
 import { ChatMessage } from '../../interfaces/chat-message';
+import { HighlightService } from '../HighlightService/highlight.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ChatService {
-    // openai!: OpenAIApi;
-
+    isLightMode = new BehaviorSubject(false);
     messages: ChatMessage[] = [];
     private messagesSubject = new BehaviorSubject<ChatMessage[]>(
         []
     );
 
-    constructor(private chatDataService: ChatDataService, private http: HttpClient) {
+    constructor(private chatDataService: ChatDataService,
+    private highlightService: HighlightService,
+        private http: HttpClient) {
     }
     private handleError(error: any): Observable<never> {
         const errorMessage = `API request failed. Error: ${error.message}`;
         console.error(errorMessage);
         return throwError(errorMessage);
+    }
+    changeChatTheme() {
+        this.isLightMode.next(!this.isLightMode.value);
     }
     async createCompletionViaLocalAI(messages: ChatMessage[]) {
         try {
@@ -58,8 +63,10 @@ export class ChatService {
     }
 
     public addHTMLTagsToResponseCode(response: string) {
-        // Match all code blocks in the response
-        const codeBlocks = response.match(/```(\w+)\n([\s\S]+?)\n```/g);
+        response = response.replace("Assistant:", '');
+        // const codeBlocks = response.match(/```(\w+)\n([\s\S]+?)\n```/g);
+        const codeBlocks = response.match(/(?:```|`{1,3})(?!.*\1)[^\r\n]*[\s\S]*?(?:```|`{1,3})/g);
+
 
         if (codeBlocks) {
             // Iterate over each code block
@@ -73,12 +80,29 @@ export class ChatService {
                     const replacedBlock = `<pre  class="line-numbers"><code class="language-${language}">${code}</code></pre>`;
                     // Replace the original code block in the response
                     response = response.replace(codeBlock, replacedBlock);
+                    this.highlightService.highlightAll();
+
                 }
             }
 
             return response;
         } else {
             return response;
+        }
+    }
+
+    public detectLanguageAndCode(response: string) {
+        const regex = /^```([^`]+)$/; // Updated regex pattern to match three ticks at the beginning of a line and capture the content inside
+        const match = regex.exec(response);
+        if (match && match.length >= 2) {
+            const language = match[1].trim(); // Extract the language
+            const codeStartIndex = match.index + match[0].length; // Calculate the start index of the code
+            const code = response.substring(codeStartIndex).trim(); // Extract the code
+            console.log('Detected language:', language);
+            console.log('Code:', code);
+            return code;
+        } else {
+            return response; // No match found, return the original string
         }
     }
 

@@ -16,7 +16,7 @@ export class SignalRService {
 
         this.hubConnection.on('ReceiveMessage', (result: string) => {
             this.MessageResponse += result;
-            this.messageSubject.next(result);
+            this.messageSubject.next(this.MessageResponse);
         });
 
         this.hubConnection.start()
@@ -29,6 +29,8 @@ export class SignalRService {
     }
     checkIfResponseEnded() {
         if (this.MessageResponse.includes("User:")) {
+            this.MessageResponse =this.MessageResponse.replace("User:", '');
+
             this.MessageResponse = "";
             return true;
         } else {

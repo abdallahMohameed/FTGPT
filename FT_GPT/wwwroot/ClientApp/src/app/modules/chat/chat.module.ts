@@ -8,6 +8,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { TypingAnimationDirective } from 'src/app/shared/Directives/typing-animation.directive';
 import { SignalRService } from './services/SignalR/signalr.service';
 import { FormsModule } from '@angular/forms';
+import { CodeBlockParserPipe } from './pipes/code-block-parser.pipe';
 
 
 @NgModule({
@@ -15,7 +16,9 @@ import { FormsModule } from '@angular/forms';
         ChatComponent,
         SidebarComponent,
         ChatContentComponent,
-        TypingAnimationDirective
+        TypingAnimationDirective,
+        CodeBlockParserPipe
+
     ],
     imports: [
         CommonModule,
